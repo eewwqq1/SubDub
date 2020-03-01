@@ -1,0 +1,11 @@
+.footer{
+    bottom: 0;
+}
+.container-fluid {
+    padding: 0px;
+}
+
+.footerText{
+    color: white;
+    padding:1%
+}
