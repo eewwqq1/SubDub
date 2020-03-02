@@ -35,10 +35,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <!--bootstrap4, goole chart link -->
-    <link rel="stylesheet" type="text/css"
-        href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-    <script type="text/javascript"
-        src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
@@ -57,7 +54,7 @@
 
         body {
 
-            background-color: bisque;
+            background-color: #b0e0e6;
         }
     </style>
 
@@ -91,96 +88,89 @@
     </nav>
 
     <!-- Log page -->
-    <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Budget
-        </button>
-        <div class="dropdown-menu" x-placement="right-start"
-            style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-            <a class="dropdown-item" href="#">Auto</a>
-
-            <div class="row">
-                <div class="input-field col s6">
-                    <label class="active" for="first_name2">Manual</label>
-                    <input style="opacity: 0.5;" value="Example: $20.00" id="first_name2" type="text" class="validate">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Yearly</button>
-        <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Monthly</button>
-        <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Weekly</button>
-    </div>
-
-    <!--BUGET page -->
-
-
-    <!--bar chart -->
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Bar Series</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div id="chart1"></div>
+                <div class="btn-group dropright">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Budget
+                    </button>
+                    <div class="dropdown-menu" x-placement="right-start"
+                        style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <a class="dropdown-item" href="#">Auto</a>
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <label class="active" for="first_name2">Manual</label>
+                                <input style="opacity: 0.5;" value="Example: $20.00" id="first_name2" type="text"
+                                    class="validate">
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Yearly</button>
+                    <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Monthly</button>
+                    <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Weekly</button>
+                </div>
+
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        jQuery(function ($) {
-            var data1 = [12, 3, 4, 2, 12, 3, 4, 17, 22, 34, 54, 67];
-            var data2 = [3, 9, 12, 14, 22, 32, 45, 12, 67, 45, 55, 7];
-            var data3 = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57];
 
-            $("#chart1").shieldChart({
-                exportOptions: {
-                    image: false,
-                    print: false
-                },
-                axisY: {
-                    title: {
-                        text: "Break-Down for selected quarter"
+    <!--bar chart -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="barchart_values" style="width: 900px; height: 300px;"></div>
+                <script type="text/javascript">
+                    google.charts.load("current", { packages: ["corechart"] });
+                    google.charts.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                            ["Subscripton", "Density", { role: "style" }],
+                            ["Subs1", 8.94, "#b87333"],
+                            ["Subs2", 10.49, "silver"],
+                            ["Subs3", 19.30, "gold"],
+                            ["Subs4", 21.45, "color: #e5e4e2"]
+                        ]);
+
+                        var view = new google.visualization.DataView(data);
+                        view.setColumns([0, 1,
+                            {
+                                calc: "stringify",
+                                sourceColumn: 1,
+                                type: "string",
+                                role: "annotation"
+                            },
+                            2]);
+
+                        var options = {
+                            title: "Type what you want",
+                            width: 600,
+                            height: 400,
+                            bar: { groupWidth: "95%" },
+                            legend: { position: "none" },
+                            backgroundColor: '#b0e0e6',
+                        };
+                        var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+                        chart.draw(view, options);
                     }
-                },
-                dataSeries: [{
-                    seriesType: "bar",
-                    data: data1
-                }]
-            });
+                </script>
+            </div>
 
-            $("#chart2").shieldChart({
-                exportOptions: {
-                    image: false,
-                    print: false
-                },
-                axisY: {
-                    title: {
-                        text: "Break-Down for selected quarter"
-                    }
-                },
-                dataSeries: [{
-                    seriesType: "bar",
-                    data: data2
-                }, {
-                    seriesType: "bar",
-                    data: data3
-                }]
-            });
-        });
-    </script>
+        </div>
+    </div>
 
+    <br><br><br><br><br>
 
     <!--pie chart -->
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div style="background-color: bisque" id="piechart"></div>
+                <div id="piechart"></div>
 
                 <script type="text/javascript">
                     // Load google charts
@@ -190,17 +180,20 @@
                     // Draw the chart and set the chart values
                     function drawChart() {
                         var data = google.visualization.arrayToDataTable([
-                            ['Task', 'Hours per Day'],
-                            ['Work', 8],
-                            ['Friends', 2],
-                            ['Eat', 2],
-                            ['TV', 2],
-                            ['Gym', 2],
-                            ['Sleep', 8]
+                            ['Subscription', 'Hours per Day'],
+                            ['sub1', 2],
+                            ['sub2', 2],
+                            ['sub3', 2],
+                            ['sub4', 2],
+                            ['sub5', 2],
+                            ['sub6', 2]
                         ]);
 
                         // Optional; add a title and set the width and height of the chart
-                        var options = { 'title': 'My Average Day', 'width': 550, 'height': 400 };
+                        var options = {
+                            'title': 'Usege', 'width': 550, 'height': 400
+                            , 'backgroundColor': '#b0e0e6'
+                        };
 
                         // Display the chart inside the <div> element with id="piechart"
                         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -213,21 +206,21 @@
         </div>
     </div>
 
-                <!-- bottom  bar -->
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <p class="navbar-brand">Contact us</a>
-                        <div class="container-fluid p-3 p-md-5">
-                            <p class="footerText">An Application to manage all your subscription. </p>
-                            <p class="footerText">Designed and built with love in the world by the A project by Jason
-                                Pan,
-                                Donggyun Kim and
-                                Gurjot Mander with the help of Bootstrap.</p>
-                            <p class="footerText">Project for COMP1800 CST</p>
-                            <p><a href="">Kim's Github</a></p>
-                            <p><a href="">Jason's Github</a></p>
-                            <p><a href="">Gurjot's Github</a></p>
-                        </div>
-                </nav>
+    <!-- bottom  bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <p class="navbar-brand">Contact us</a>
+            <div class="container-fluid p-3 p-md-5">
+                <p class="footerText">An Application to manage all your subscription. </p>
+                <p class="footerText">Designed and built with love in the world by the A project by Jason
+                    Pan,
+                    Donggyun Kim and
+                    Gurjot Mander with the help of Bootstrap.</p>
+                <p class="footerText">Project for COMP1800 CST</p>
+                <p><a href="">Kim's Github</a></p>
+                <p><a href="">Jason's Github</a></p>
+                <p><a href="">Gurjot's Github</a></p>
+            </div>
+    </nav>
 </body>
 
 </html>
