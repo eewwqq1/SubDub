@@ -7,10 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <title>Sub'Dub</title>
 
+  <link rel="stylesheet" href="style/style.css">
+
+  <!-- Bootstrap, Jquley CSS -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
@@ -27,10 +32,25 @@
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <style>
-      .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
-      .toggle.ios .toggle-handle { border-radius: 20px; }
-    </style>
+  
+  
+    <!-- Bootstrap, Jquley, HTML Style -->
+  <style>
+    .toggle.ios,
+    .toggle-on.ios,
+    .toggle-off.ios {
+      border-radius: 20px;
+    }
+
+    .toggle.ios .toggle-handle {
+      border-radius: 20px;
+    }
+    body {
+
+      background-color: bisque;
+    }
+
+  </style>
 
 </head>
 
@@ -61,127 +81,117 @@
 
   </nav>
 
-<!-- Reminder page-->
+  <!-- Reminder page-->
 
-<form>
-  <div class="container">
-    <div class="row">
-      <div class='col-sm-6'>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Name</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="container">
-    <div class="row">
-      <div class='col-sm-6'>
-        <div class="form-group">
-          <label for="disabledSelect">Type</label>
-          <select id="disabledSelect" class="form-control">
-            <option>Movie</option>
-            <option>Music</option>
-            <option>Product</option>
-            <option>Lifestlye</option>
 
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class='col-sm-6'>
-
-        <!-- Datepicker as text field -->
-
-        <div class="form-group">
-          <div id="filterDate2">
-            <label for="filterDate2">Due date</label>
-
-            <div class="input-group date" data-date-format="dd.mm.yyyy">
-              <input type="text" class="form-control" placeholder="dd.mm.yyyy">
-              <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
-              </div>
-            </div>
-
+  <form>
+    <div class="container">
+      <div class="row">
+        <div class='col-sm-6'>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput"
+              placeholder="That is user sunscription demo">
           </div>
         </div>
-        <!-- Datepicker get function -->
+      </div>
+    </div>
 
-        <script>
-          $('.input-group.date').datepicker({ format: "dd.mm.yyyy" }); 
-        </script>
+    <div class="container">
+      <div class="row">
+        <div class='col-sm-6'>
+          <div class="form-group">
+            <label for="disabledSelect">Type</label>
+            <select id="disabledSelect" class="form-control">
+              <option>Movie</option>
+              <option>Music</option>
+              <option>Product</option>
+              <option>Lifestlye</option>
 
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="container">
+      <div class="row">
+        <div class='col-sm-6'>
 
-        <!-- alarm togglr button -->
+          <!-- Datepicker as text field -->
 
-        <div class="container">
-          <div class="row">
-            <div class="form-group">
-              <div id="alarmpincker">
-                <label for="alarmpincker">Create Alarm?</label>
+          <div class="form-group">
+            <div id="filterDate2">
+              <label for="filterDate2">Due date</label>
 
-                <input type="checkbox" checked data-toggle="toggle" data-size="small"
-                  data-on="<i class='fa fa-play'></i> Yes" 
-                  data-off="<i class='fa fa-pause'></i> No"
-                  data-style="ios">
-
+              <div class="input-group date" data-date-format="dd.mm.yyyy">
+                <input type="text" class="form-control" placeholder="dd.mm.yyyy">
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
+                </div>
               </div>
+
+            </div>
+          </div>
+          <!-- Datepicker get function -->
+
+          <script>
+            $('.input-group.date').datepicker({ format: "dd.mm.yyyy" }); 
+          </script>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- alarm togglr button -->
+
+    <div class="container">
+      <div class="row">
+          <div class='col-sm-6'>
+          <div id="alarmpincker">
+            <label for="alarmpincker">Create Alarm?</label>
+
+            <input type="checkbox" checked data-toggle="toggle" data-size="small"
+              data-on="<i class='fa fa-play'></i> Yes" data-off="<i class='fa fa-pause'></i> No" data-style="ios">
             </div>
           </div>
         </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="form-group">
-              <div class='col-sm-6'>
-        <!-- Submit button -->
-
-        <div class="form-group">
-
-          <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-        </div>
-
-         <!-- Cancle button -->
-
-         
-        <div class="form-group">
-
-          <button class="btn btn-primary " name="cancel" type="cancel">cancel</button>
-        </div>
-
       </div>
     </div>
-  </div>
 
-</form>
-<!-- Form code ends -->
+    <div class="container py-5">
+      <div class="row">
+          <!-- Submit button -->
+          <div class='col-sm-3'>
+            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+          </div>
 
-</div>
-</div>
-</div>
-</div>
+          <!-- Cancle button -->
+
+          <div class='col-sm-3'>
+            <button class="btn btn-primary " name="cancel" type="cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
 
 
-
-
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <p class="navbar-brand">Contact us</a>
-            <div class="container-fluid p-3 p-md-5">
-                <p class = "footerText">An Application to manage all your subscription. </p>
-                <p class = "footerText">Designed and built with love in the world by the A project by Jason Pan, Donggyun Kim and Gurjot Mander with the help of Bootstrap.</p>
-                <p class = "footerText">Project for COMP1800 CST</p>
-                <p><a href="">Kim's Github</a></p>
-                <p><a href="">Jason's Github</a></p>
-                <p><a href="">Gurjot's Github</a></p>
-            </div>
-        </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <p class="navbar-brand">Contact us</a>
+      <div class="container-fluid p-3 p-md-5">
+        <p class="footerText">An Application to manage all your subscription. </p>
+        <p class="footerText">Designed and built with love in the world by the A project by Jason Pan, Donggyun Kim and
+          Gurjot Mander with the help of Bootstrap.</p>
+        <p class="footerText">Project for COMP1800 CST</p>
+        <p><a href="">Kim's Github</a></p>
+        <p><a href="">Jason's Github</a></p>
+        <p><a href="">Gurjot's Github</a></p>
+      </div>
+  </nav>
 
 
 </body>
