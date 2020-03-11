@@ -17,24 +17,24 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-  
-  
-    <!-- Bootstrap, Jquley, HTML Style -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+  </script>
+
+
+  <!-- Bootstrap, Jquley, HTML Style -->
   <style>
     .toggle.ios,
     .toggle-on.ios,
@@ -45,11 +45,11 @@
     .toggle.ios .toggle-handle {
       border-radius: 20px;
     }
+
     body {
 
       background-color: bisque;
     }
-
   </style>
 
 </head>
@@ -137,7 +137,9 @@
           <!-- Datepicker get function -->
 
           <script>
-            $('.input-group.date').datepicker({ format: "dd.mm.yyyy" }); 
+            $('.input-group.date').datepicker({
+              format: "dd.mm.yyyy"
+            });
           </script>
 
         </div>
@@ -149,32 +151,32 @@
 
     <div class="container">
       <div class="row">
-          <div class='col-sm-6'>
+        <div class='col-sm-6'>
           <div id="alarmpincker">
             <label for="alarmpincker">Create Alarm?</label>
 
             <input type="checkbox" checked data-toggle="toggle" data-size="small"
               data-on="<i class='fa fa-play'></i> Yes" data-off="<i class='fa fa-pause'></i> No" data-style="ios">
-            </div>
           </div>
         </div>
       </div>
     </div>
+    </div>
 
     <div class="container py-5">
       <div class="row">
-          <!-- Submit button -->
-          <div class='col-sm-3'>
-            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-          </div>
+        <!-- Submit button -->
+        <div class='col-sm-3'>
+          <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+        </div>
 
-          <!-- Cancle button -->
+        <!-- Cancle button -->
 
-          <div class='col-sm-3'>
-            <button class="btn btn-primary " name="cancel" type="cancel">Cancel</button>
-          </div>
+        <div class='col-sm-3'>
+          <button class="btn btn-primary " name="cancel" type="cancel">Cancel</button>
         </div>
       </div>
+    </div>
     </div>
 
   </form>

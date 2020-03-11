@@ -2,6 +2,26 @@
     text-align: center;
 }
 
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+title-divider{
+    margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+.marketing .col-lg-6 {
+    text-align: center;
+}
+
+.featurette-divider {
+    margin: 5rem 0;
+}
+
 .footer{
     bottom: 0;
 }
@@ -12,4 +32,4 @@
 .footerText{
     color: white;
     padding:1%
-}
+} 
