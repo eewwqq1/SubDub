@@ -77,8 +77,6 @@
         </li>
       </ul>
     </div>
-
-
   </nav>
 
   <!-- Reminder page-->
@@ -91,8 +89,7 @@
         <div class='col-sm-6'>
           <div class="form-group">
             <label for="formGroupExampleInput">Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput"
-              placeholder="That is user sunscription demo">
+            <input type="text" class="form-control" id="nameOfSub" placeholder="Amazon">
           </div>
         </div>
       </div>
@@ -103,12 +100,11 @@
         <div class='col-sm-6'>
           <div class="form-group">
             <label for="disabledSelect">Type</label>
-            <select id="disabledSelect" class="form-control">
+            <select id="typeOfSub" class="form-control">
               <option>Movie</option>
               <option>Music</option>
               <option>Product</option>
               <option>Lifestlye</option>
-
             </select>
           </div>
         </div>
@@ -124,24 +120,9 @@
           <div class="form-group">
             <div id="filterDate2">
               <label for="filterDate2">Due date</label>
-
-              <div class="input-group date" data-date-format="dd.mm.yyyy">
-                <input type="text" class="form-control" placeholder="dd.mm.yyyy">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
-                </div>
-              </div>
-
+              <input class="form-control" type="date" value="2020-01-01" id="dateOfSub">
             </div>
           </div>
-          <!-- Datepicker get function -->
-
-          <script>
-            $('.input-group.date').datepicker({
-              format: "dd.mm.yyyy"
-            });
-          </script>
-
         </div>
       </div>
     </div>
@@ -155,8 +136,7 @@
           <div id="alarmpincker">
             <label for="alarmpincker">Create Alarm?</label>
 
-            <input type="checkbox" checked data-toggle="toggle" data-size="small"
-              data-on="<i class='fa fa-play'></i> Yes" data-off="<i class='fa fa-pause'></i> No" data-style="ios">
+            <input type="checkbox" checked data-toggle="toggle" data-size="small">
           </div>
         </div>
       </div>
@@ -167,13 +147,13 @@
       <div class="row">
         <!-- Submit button -->
         <div class='col-sm-3'>
-          <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+          <button class="btn btn-primary " name="submit" type="submit" id="submitReminder">Submit</button>
         </div>
 
         <!-- Cancle button -->
 
         <div class='col-sm-3'>
-          <button class="btn btn-primary " name="cancel" type="cancel">Cancel</button>
+          <button class="btn btn-primary " name="cancel" type="cancel" id="cancelReminder">Cancel</button>
         </div>
       </div>
     </div>
