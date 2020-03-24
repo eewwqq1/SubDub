@@ -82,105 +82,108 @@
   </nav>
 
   <!-- Reminder page-->
+  
 
 
+  <div class="shadow p-5 mb-5 bg-white">
 
-  <form>
-    <div class="container">
-      <div class="row">
-        <div class='col-sm-6'>
-          <div class="form-group">
-            <label for="formGroupExampleInput">Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput"
-              placeholder="That is user sunscription demo">
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class='col-sm-6'>
-          <div class="form-group">
-            <label for="disabledSelect">Type</label>
-            <select id="disabledSelect" class="form-control">
-              <option>Movie</option>
-              <option>Music</option>
-              <option>Product</option>
-              <option>Lifestlye</option>
-
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class='col-sm-6'>
-
-          <!-- Datepicker as text field -->
-
-          <div class="form-group">
-            <div id="filterDate2">
-              <label for="filterDate2">Due date</label>
-
-              <div class="input-group date" data-date-format="dd.mm.yyyy">
-                <input type="text" class="form-control" placeholder="dd.mm.yyyy">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
-                </div>
-              </div>
-
+    <h1 class="pageTitle">Add Reminder</h1>
+  <hr class="title-divider">
+  
+    <form>
+      <div class="container">
+        <div class="row">
+          <div class='col-sm-12'>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput"
+                placeholder="That is user sunscription demo">
             </div>
           </div>
-          <!-- Datepicker get function -->
-
-          <script>
-            $('.input-group.date').datepicker({
-              format: "dd.mm.yyyy"
-            });
-          </script>
-
         </div>
       </div>
-    </div>
 
+      <div class="container">
+        <div class="row">
+          <div class='col-sm-12'>
+            <div class="form-group">
+              <label for="disabledSelect">Type</label>
+              <select id="disabledSelect" class="form-control">
+                <option>Movie</option>
+                <option>Music</option>
+                <option>Product</option>
+                <option>Lifestlye</option>
 
-    <!-- alarm togglr button -->
-
-    <div class="container">
-      <div class="row">
-        <div class='col-sm-6'>
-          <div id="alarmpincker">
-            <label for="alarmpincker">Create Alarm?</label>
-
-            <input type="checkbox" checked data-toggle="toggle" data-size="small"
-              data-on="<i class='fa fa-play'></i> Yes" data-off="<i class='fa fa-pause'></i> No" data-style="ios">
+              </select>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
 
-    <div class="container py-5">
-      <div class="row">
-        <!-- Submit button -->
-        <div class='col-sm-3'>
-          <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-        </div>
+      <div class="container">
+        <div class="row">
+          <div class='col-sm-12'>
 
-        <!-- Cancle button -->
+            <!-- Datepicker as text field -->
 
-        <div class='col-sm-3'>
-          <button class="btn btn-primary " name="cancel" type="cancel">Cancel</button>
+            <div class="form-group">
+              <div id="filterDate2">
+                <label for="filterDate2">Due date</label>
+
+                <div class="input-group date" data-date-format="dd.mm.yyyy">
+                  <input type="text" class="form-control" placeholder="dd.mm.yyyy">
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- Datepicker get function -->
+
+            <script>
+              $('.input-group.date').datepicker({
+                format: "dd.mm.yyyy"
+              });
+            </script>
+
+          </div>
         </div>
       </div>
-    </div>
-    </div>
 
-  </form>
 
+      <!-- alarm togglr button -->
+
+      <div class="container">
+        <div class="row">
+          <div class='col-sm-6'>
+            <div id="alarmpincker">
+              <label for="alarmpincker">Create Alarm?</label>
+
+              <input type="checkbox" checked data-toggle="toggle" data-size="small"
+                data-on="<i class='fa fa-play'></i> Yes" data-off="<i class='fa fa-pause'></i> No" data-style="ios">
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="container py-5">
+    <div class="row">
+      <!-- Submit button -->
+      <div class='col-sm-3'>
+        <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+      </div>
+
+      <!-- Cancle button -->
+
+      <div class='col-sm-3'>
+        <button class="btn btn-primary " name="cancel" type="cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <p class="navbar-brand">Contact us</a>
