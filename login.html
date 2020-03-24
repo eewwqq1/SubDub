@@ -1,150 +1,118 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <meta name="comp1800 boilerplate code" content="my bcit project">
 
-    <!----------------------------------------------->
-    <!--  Meta tag for rendering on mobile devices -->
-    <!----------------------------------------------->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+    body {
+        font-family: "Lato", sans-serif;
+    }
     
-    <!----------------------------------------------->
-    <!-- CSS: Bootstrap, Firebase, other API -->
-    <!----------------------------------------------->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-   
-    <!------------------------>
-    <!-- Your own CSS files -->
-    <!------------------------>
-    <link rel="stylesheet" href="styles/style.css">
-
+    
+    
+    .main-head{
+        height: 150px;
+        background: #FFF;
+       
+    }
+    
+    .sidenav {
+        height: 100%;
+        background-color: #000;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+    
+    
+    .main {
+        padding: 0px 10px;
+    }
+    
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+    }
+    
+    @media screen and (max-width: 450px) {
+        .login-form{
+            margin-top: 10%;
+        }
+    
+        .register-form{
+            margin-top: 10%;
+        }
+    }
+    
+    @media screen and (min-width: 768px){
+        .main{
+            margin-left: 40%; 
+        }
+    
+        .sidenav{
+            width: 40%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+    
+        .login-form{
+            margin-top: 80%;
+        }
+    
+        .register-form{
+            margin-top: 20%;
+        }
+    }
+    
+    
+    .login-main-text{
+        margin-top: 20%;
+        padding: 60px;
+        color: #fff;
+    }
+    
+    .login-main-text h2{
+        font-weight: 300;
+    }
+    
+    .btn-black{
+        background-color: #000 !important;
+        color: #fff;
+    }
+</style>
 </head>
 <body>
-    <!----------------------->
-    <!--  HTML Section -->
-    <!----------------------->
-    <h1>Login page</h1>
 
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
+    <div class="sidenav">
+        <div class="login-main-text">
+           <h2>Application<br> Login Page</h2>
+           <p>Login or register from here to access.</p>
+        </div>
+     </div>
+     <div class="main">
+        <div class="col-md-6 col-sm-12">
+           <div class="login-form">
+              <form>
+                 <div class="form-group">
+                    <label>User Name</label>
+                    <input type="text" class="form-control" placeholder="User Name">
+                 </div>
+                 <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Password">
+                 </div>
+                 <button type="submit" class="btn btn-black">Login</button>
+                 <button type="submit" class="btn btn-secondary">Register</button>
+              </form>
+           </div>
+        </div>
+     </div>
 
-
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related    -->
-    <!----------------------------------------------->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <!-- <script src="scripts/firebase_api_carly.js"> </script> -->
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyAL3H4clvbViJ4vFVymG1cYo51vAKor_zQ",
-            authDomain: "sub-dub.firebaseapp.com",
-            databaseURL: "https://sub-dub.firebaseio.com",
-            projectId: "sub-dub",
-            storageBucket: "sub-dub.appspot.com",
-            messagingSenderId: "553039405587",
-            appId: "1:553039405587:web:ce9ad9ef6e13fe2b0fd5e6"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    // User successfully signed in.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    //------------------------------------------------------------------------------------------
-                    // The code below is modified from default snippet provided by the FB documentation.
-                    //
-                    // If the user is a "brand new" user, then create a new "user" in your own database.
-                    // Assign this user with the name and email provided.
-                    // Before this works, you must enable "Firestore" from the firebase console.
-                    // The Firestore rules must allow the user to write. 
-                    //------------------------------------------------------------------------------------------
-                    var user = authResult.user;
-                    if (authResult.additionalUserInfo.isNewUser) {
-                        db.collection("users").doc(user.uid).set({
-                                name: user.displayName,
-                                email: user.email
-                            }).then(function () {
-                                console.log("New user added to firestore");
-                                window.location.assign("main.html");
-                            })
-                            .catch(function (error) {
-                                console.log("Error adding new user: " + error);
-                            });
-                    } else {
-                        return true;
-                    }
-                    return false;
-                },
-
-                uiShown: function () {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'main.html',
-            signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
-                //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                //firebase.auth.PhoneAuthProvider.PROVIDER_ID
-            ],
-            // Terms of service url.
-            tosUrl: 'main.html',
-            // Privacy policy url.
-            privacyPolicyUrl: 'main.html',
-            accountChooserEnabled: false
-        };
-        // The start method will wait until the DOM is loaded.
-        // Inject the login interface into the HTML
-        ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
-  
-    <!--------------------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here    -->
-    <!--------------------------------------------------------------------->
-    <!-- <script src="scripts/script.js"></script> -->    
-    <script>
-        // function getData(){
-        //     db.collection(users).doc("fKPDlwApeMdQAZFUpmJJFo6ZBQ42").onSnapshot(
-        //         function (snap){
-        //             console.log(snap);
-        //         }
-        //     )
-        // }
-
-        // getData();
-    </script>
-
-     <!--------------------------------------------------------------------->
-    <!-- Make calls to your own JavaScript functions, here below-->
-    <!---------------------------------------------------------------------->
-
-
+    
 </body>
-</html>                           
+</html>
