@@ -33,3 +33,13 @@ margin-bottom: 1rem;
     color: white;
     padding:1%
 } 
+
+.toggle.ios,
+    .toggle-on.ios,
+    .toggle-off.ios {
+      border-radius: 20px;
+    }
+
+    .toggle.ios .toggle-handle {
+      border-radius: 20px;
+    }
