@@ -25,6 +25,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="btn btn-sm btn-secondary" href="index.html" id = "loginButton">Back</a>
         <a class="navbar-brand" href="#">Sub Dub</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,11 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="profile.html">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Setting</a>
+                    <a class="btn btn-sm btn-warning" href="login.html" id = "logOutButton">Log Out</a>
                 </li>
+              
+
             </ul>
         </div>
     </nav>
@@ -76,11 +79,12 @@
                     <div class='col-sm-12'>
                         <div class="form-group">
                             <label for="disabledSelect">Type:</label>
-                            <select  id="typeOfSub" class="form-control">
-                                <option>Movie</option>
-                                <option>Music</option>
-                                <option>Product</option>
-                                <option>Lifestlye</option>
+                            <select  id="typeOfSub" class="form-control" value="">
+                                <option value="" selected disabled hidden>Choose Category Here</option>
+                                <option value="Movie">Movie</option>
+                                <option value="Music">Music</option>
+                                <option value="Product">Product</option>
+                                <option value="Lifestlye">Lifestyle</option>
                             </select>
                         </div>
                     </div>
@@ -91,7 +95,7 @@
                 <div class="row">
                     <div class='col-sm-12'>
                         <div class="form-group">
-                            <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                            <label for="formGroupExampleInput">Date</label>
                             <input class="form-control" type="date" value="2020-01-01"  id="dateOfSub">
                         </div>
                     </div>
@@ -107,7 +111,7 @@
 
                     <!-- Cancle button -->
                     <div class='col-sm-2'>
-                        <button class="btn btn-warning" type="reset" value="Reset" id="cancelAddSub">Reset</button>
+                        <button class="btn btn-warning" type="reset" onclick = clearField() value="reset" id="resetAddSub">Reset</button>
                     </div>
                 </div>
             </div>
