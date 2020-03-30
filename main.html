@@ -5,12 +5,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sub'Dub</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Sub'Dub</title>
-    <link rel="stylesheet" href="style/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -21,14 +20,30 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
-    
+    <!--  -->
+    <!-- Custom styles-->
+    <!-- <link rel="stylesheet" type="text/css" href="style/login.css"> -->
+
+    <!--  -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+    <!--  -->
+    <!-- Firebase auth and Firestore-->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
+    <!--  -->
+    <!-- Custom Script -->
+    <script src="scripts/firebase.js"></script>
 
 </head>
 
 <body>
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand my-0 mr-md-auto font-weight-normal" href="#">Sub Dub</a>
+        <a class="navbar-brand my-0 mr-md-auto font-weight-normal" href="main.html">Sub Dub</a>
 
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group mr-2">
@@ -58,7 +73,7 @@
                     alt="heading1" width="140" height="140">
                 <h2>Save Money Now</h2>
                 <p>Never miss a payment or never forget to cancel subscriptions again.</p>
-            </div><!-- /.col-lg-6 -->
+            </div>
 
             <div class="col-lg-6">
                 <img class="rounded"
@@ -67,7 +82,7 @@
                 <h2>Get Reminded</h2>
                 <p>Sub Dub will remind you of your subscriptions.
                     24/7 365.</p>
-            </div><!-- /.col-lg-6 -->
+            </div>
         </div>
 
     </div>
@@ -91,8 +106,6 @@
         </div>
 
         <hr class="featurette-divider">
-
-        <!-- /END THE FEATURETTES -->
 
     </div>
 

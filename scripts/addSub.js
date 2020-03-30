@@ -4,3 +4,4 @@ function clearField(){
     document.getElementById("typeOfSub").set;
     document.getElementById("dateOfSub").clearField;
 }
+checkCred()
