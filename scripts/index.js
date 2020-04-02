@@ -35,12 +35,27 @@ function readSubscriptions(){
                     nameNode.appendChild(textnodeName); 
   
                     let priceNode = document.createElement("LI");                           // Create a <li> node
-                    let textnodePrice = document.createTextNode(doc.data().price);           // Create a text node
-                    priceNode.appendChild(textnodePrice);                                   // Append the text to <li>
+                    let textnodePrice = document.createTextNode("$" + doc.data().price);           // Create a text node
+                    priceNode.appendChild(textnodePrice);  
+
+                    let typeNode = document.createElement("LI");                           // Create a <li> node
+                    let textnodeType = document.createTextNode(doc.data().type);           // Create a text node
+                    typeNode.appendChild(textnodeType); 
+
+                    let dateNode = document.createElement("LI");                           // Create a <li> node
+                    let textnodeDue = document.createTextNode(doc.data().dueDate);           // Create a text node
+                    dateNode.appendChild(textnodeDue);                                  // Append the text to <li>
                     
+                    let freqNode = document.createElement("LI");                           // Create a <li> node
+                    let textnodeFreq = document.createTextNode(doc.data().frequency);           // Create a text node
+                    freqNode.appendChild(textnodeFreq); 
+
                     let cardList = document.createElement("UL");
                     cardList.appendChild(nameNode);
                     cardList.appendChild(priceNode);
+                    cardList.appendChild(typeNode);
+                    cardList.appendChild(dateNode);
+                    cardList.appendChild(freqNode);
                     
                     let cardText = document.createElement("P");
                     cardText.className = "card-text";

@@ -73,6 +73,13 @@
     <hr class="title-divider">
 
     <div class="shadow p-5 mb-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class='col-sm-12'>
+                    <div id=message style = "display: none;"></div>
+                </div>
+            </div>
+        </div>
         <form class="pageForm">
             <div class="container">
                 <div class="row">
@@ -129,7 +136,7 @@
                     <div class='col-sm-12'>
                         <div class="form-group">
                             <label for="formGroupExampleInput">Reminder Frequency</label>
-                            <select  id="typeOfSub" class="form-control" value="">
+                            <select  id="freqOfSub" class="form-control" value="">
                                 <option value="" selected disabled hidden>Choose Frequency Here</option>
                                 <option value="Weekly">Weekly</option>
                                 <option value="BiWeekly">Bi-weekly</option>
@@ -142,14 +149,14 @@
 
             <div class="container py-5">
                 <div class="row">
-                    <!-- Submit button -->
+
                     <div class='col-sm-2'>
-                        <button class="btn btn-primary " name="submit" type="submit" id="submitAddSub">Submit</button>
+                        <button class="btn btn-primary" type="button" name="submitBtn"  onclick=writeSub() id="submitAddSub">Submit</button>
                     </div>
 
-                    <!-- Cancle button -->
+                    
                     <div class='col-sm-2'>
-                        <button class="btn btn-warning" type="reset" value="reset" id="resetAddSub">Reset</button>
+                        <button class="btn btn-warning" type="resetBtn" value="reset" id="resetAddSub">Reset</button>
                     </div>
                 </div>
             </div>
