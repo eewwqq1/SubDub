@@ -79,8 +79,78 @@
                 <div class="col-sm-4">
                     <a class="btn btn-sm btn-primary" href="addSub.html" id="addSubButton"> + Add More Subscription</a>
                 </div>
+                <div class="container">
+                    <div class="row">
+                        <div class='col-sm-12'>
+                            <div id = deleteMessage style = "display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+                
 
                 <div class="col-md-4" id = "overviewCards">
+
+                </div>
+
+                <div class="modal fade" id="subModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Edit Subscription</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class='col-sm-12'>
+                                        <div id=updateMessage style = "display: none;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                          <form>
+                            <div class="form-group">
+                              <label for="recipient-name" class="col-form-label">Name:</label>
+                              <input type="text" class="form-control" id="nameOfSub">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Price:</label>
+                                <input type="number" class="form-control" id="priceOfSub">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="disabledSelect">Type:</label>
+                                <select  id="typeOfSub" class="form-control" value="">
+                                    <option value="Movie">Movie</option>
+                                    <option value="Music">Music</option>
+                                    <option value="Product">Product</option>
+                                    <option value="Lifestlye">Lifestyle</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Next Due Date</label>
+                                <input class="form-control" type="date" id="dateOfSub">
+                            </div>
+
+                            <label for="formGroupExampleInput">Reminder Frequency</label>
+                            <select  id="freqOfSub" class="form-control" value="">
+                                <option value="Weekly">Weekly</option>
+                                <option value="BiWeekly">Bi-weekly</option>
+                                <option value="Monthly">Monthly</option>
+                            </select>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button id = closeBtn type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button id = updateBtn data-id ="" type="button" class="btn btn-primary" onclick = "updateSub()">Update</button>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>

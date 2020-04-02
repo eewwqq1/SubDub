@@ -27,6 +27,9 @@ function readSubscriptions(){
         userSub = db.collection("users").doc(userID).collection("subs");
         userSub.get().then(
             function(snap){
+                if(snap.size<=0){
+                    console.log("empty")
+                }
                 snap.forEach(function(doc){
                     let deck = document.getElementById("overviewCards");
 
@@ -65,10 +68,22 @@ function readSubscriptions(){
                     //buttons
                     let viewButton = document.createElement("BUTTON");
                     viewButton.className = "btn btn-sm btn-outline-secondary";
-                    viewButton.innerHTML = "View";
+                    viewButton.innerHTML = "Delete";
+                    viewButton.onclick = function(){
+                        deleteSub(doc.id);
+                    };
                     
                     let editButton = document.createElement("BUTTON");
                     editButton.className = "btn btn-sm btn-outline-secondary";
+                    editButton.setAttribute("data-toggle", "modal");
+                    editButton.setAttribute("data-target", "#subModal");
+                    editButton.onclick = function(){
+                        editSub(doc.id,
+                            doc.data().name,
+                            doc.data().price,
+                            doc.data().type,
+                            doc.data().dueDate,
+                            doc.data().frequency)};
                     editButton.innerHTML = "Edit";
 
                     let buttonBody = document.createElement("div");
@@ -95,37 +110,88 @@ function readSubscriptions(){
                 })
             }
         )
-
-
-
-
     });
+}
 
+function editSub(id, name, price, type, dueDate, frequency){
+    document.getElementById("nameOfSub").value = name;
+    document.getElementById("priceOfSub").value = price;
+    document.getElementById("typeOfSub").value = type;
+    document.getElementById("dateOfSub").value = dueDate;
+    document.getElementById("freqOfSub").value = frequency;
+    document.getElementById("updateBtn").setAttribute("data-id", id);
 }
 
 
-{/* <div class="card mb-4 shadow-sm">
-<img class="card-img-top"
-    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-    alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
-    src="image/amazonLogo.jpg" data-holder-rendered="true">
-<div class="card-body">
+function deleteSub(subId){
+    firebase.auth().onAuthStateChanged(function(user) {
+        userID = firebase.auth().currentUser.uid;
 
-    <p class="card-text">
-        <ul>
-            <li>Amazon</li>
-            <li>$10</li>
-            <li>Next due date: 2020-03-30</li>
-        </ul>
-    </p>
+        db.collection("users").doc(userID)
+        .collection("subs").doc(subId)
+        .delete().then(function() {
+            showSuccess("deleteMessage");
+            setTimeout(window.location.reload()
+            , 5000)
+        }).catch(function(error) {
+            showError("deleteMessage");
+        })
+    });
+}
 
-    <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit
-                Remainder</button>
-        </div>
-    </div>
 
-</div>
-</div> */}
+function updateSub(){
+    let subId = document.getElementById("updateBtn").getAttribute("data-id");
+    let subName = document.getElementById("nameOfSub").value;
+    let subAmount = document.getElementById("priceOfSub").value;
+    let subType = document.getElementById("typeOfSub").value;
+    let subDueDate = document.getElementById("dateOfSub").value;
+    let subFreq = document.getElementById("freqOfSub").value;
+
+    // update sub doc in user doc
+    firebase.auth().onAuthStateChanged(function(user) {
+        
+        userID = firebase.auth().currentUser.uid;
+        // user's profile
+        userSubs = db.collection("users").doc(userID).collection("subs");
+
+        // sub under user
+        var sub = userSub.doc(subId);
+        return sub.update({
+            name: subName,
+            price: subAmount,
+            type: subType,
+            dueDate: subDueDate,
+            frequency:subFreq
+        })
+        .then(function() {
+            showSuccess("updateMessage");
+            document.getElementById("closeBtn").onclick = function(){
+                window.location.reload();
+            }
+        })
+        .catch(function(error) {
+            // The document probably doesn't exist.
+            showError("updateMessage")
+        });
+    })
+}
+
+function showSuccess(elemId){
+    message = document.getElementById(elemId)
+    message.className = "alert alert-success";
+    message.style.display = "block"
+    if(elemId == "updateMessage"){
+        message.innerHTML = "<strong>Success!</strong> Subscription added."
+    }else{
+        message.innerHTML = "<strong>Success!</strong> Subscription deleted. Refreshing in 5 seconds"
+    }
+}
+
+
+function showError(elemId){
+    message = document.getElementById(elemId)
+    message.className = "alert alert-warning";
+    message.style.display = "block";
+    message.innerHTML = "<strong>Error!</strong> An error occured."
+}
