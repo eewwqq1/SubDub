@@ -25,14 +25,13 @@ title.onmousemove = function (e) {
 }
 
 function backHome(){
-    let user = firebase.auth().currentUser;
-
-    console.log(user);
-    if (user) {
-        window.location = "index.html"
-
-    } else {
-        window.location = "main.html"
-    }
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            window.location = "index.html"
+    
+        } else {
+            window.location = "main.html"
+        }
+    });
 
 }

@@ -69,6 +69,9 @@
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row">
+                <h1 id = "greetingMsg" class="col-md-8">
+                    Greetings,
+                </h1>
                 <h1 class="col-md-8">
                     <u>Overview</u>
                 </h1>
@@ -76,39 +79,83 @@
                 <div class="col-sm-4">
                     <a class="btn btn-sm btn-primary" href="addSub.html" id="addSubButton"> + Add More Subscription</a>
                 </div>
+                <div class="container">
+                    <div class="row">
+                        <div class='col-sm-12'>
+                            <div id = deleteMessage style = "display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+                
 
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top"
-                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                            alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
-                            src="image/amazonLogo.jpg" data-holder-rendered="true">
-                        <div class="card-body">
+                <div class="col-md-4" id = "overviewCards">
 
-                            <p class="card-text">
-                                <ul>
-                                    <li>Amazon</li>
-                                    <li>$10</li>
-                                    <li>Next due date: 2020-03-30</li>
-                                </ul>
-                            </p>
+                </div>
 
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit
-                                        Remainder</button>
+                <div class="modal fade" id="subModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Edit Subscription</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class='col-sm-12'>
+                                        <div id=updateMessage style = "display: none;"></div>
+                                    </div>
                                 </div>
                             </div>
 
+                          <form>
+                            <div class="form-group">
+                              <label for="recipient-name" class="col-form-label">Name:</label>
+                              <input type="text" class="form-control" id="nameOfSub">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Price:</label>
+                                <input type="number" class="form-control" id="priceOfSub">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="disabledSelect">Type:</label>
+                                <select  id="typeOfSub" class="form-control" value="">
+                                    <option value="Movie">Movie</option>
+                                    <option value="Music">Music</option>
+                                    <option value="Product">Product</option>
+                                    <option value="Lifestlye">Lifestyle</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Next Due Date</label>
+                                <input class="form-control" type="date" id="dateOfSub">
+                            </div>
+
+                            <label for="formGroupExampleInput">Reminder Frequency</label>
+                            <select  id="freqOfSub" class="form-control" value="">
+                                <option value="Weekly">Weekly</option>
+                                <option value="BiWeekly">Bi-weekly</option>
+                                <option value="Monthly">Monthly</option>
+                            </select>
+                          </form>
                         </div>
+                        <div class="modal-footer">
+                          <button id = closeBtn type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button id = updateBtn data-id ="" type="button" class="btn btn-primary" onclick = "updateSub()">Update</button>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <p class="navbar-brand">Contact us</p>
         <div class="container-fluid p-3 p-md-5">
             <p class="footerText">An Application to manage all your subscription. </p>
