@@ -156,7 +156,7 @@ function updateSub(){
         userSubs = db.collection("users").doc(userID).collection("subs");
 
         // sub under user
-        var sub = userSub.doc(subId);
+        let sub = userSub.doc(subId);
         return sub.update({
             name: subName,
             price: subAmount,

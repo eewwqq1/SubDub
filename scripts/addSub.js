@@ -7,10 +7,10 @@ function writeSub(){
     let subFreq = document.getElementById("freqOfSub").value;
 
     if(!subName || subAmount ==0 || !subType || !subFreq){
-        window.alert("Please fill in all fields")
-    }
-
-    firebase.auth().onAuthStateChanged(function(user) {
+        window.alert("Please fill in all fields");
+        return;
+    }else{
+        firebase.auth().onAuthStateChanged(function(user) {
         userID = firebase.auth().currentUser.uid;
         userSub = db.collection("users").doc(userID).collection("subs");
         userSub.add({
@@ -29,6 +29,9 @@ function writeSub(){
             showError()
         });
     });
+    }
+
+
 }
 
 function showSuccess(){
