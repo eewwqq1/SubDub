@@ -33,25 +33,6 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
-
-    <!-- Bootstrap, Jquley, HTML Style -->
-    <style>
-        .toggle.ios,
-        .toggle-on.ios,
-        .toggle-off.ios {
-            border-radius: 20px;
-        }
-
-        .toggle.ios .toggle-handle {
-            border-radius: 20px;
-        }
-
-        body {
-
-            background-color: powderblue;
-        }
-    </style>
-
 </head>
 
 
@@ -143,12 +124,10 @@
                 </li>
             </ul>
         </div>
-
-
     </nav>
 
     <!-- Log page -->
-        <div class="container">
+        <div class="container2">
             <div class="dropdown dropright">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: grey;">
                 Budget
@@ -163,18 +142,19 @@
                 </div>
             </div>
         </div>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Yearly</button>
-            <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Monthly</button>
-            <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Weekly</button>
+        <div class = "container1">
+            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Yearly</button>
+                <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Monthly</button>
+                <button type="button" class="btn btn-secondary" style="color: lightskyblue;">Weekly</button>
+            </div>
         </div>
-
 
 
 
         <!--bar chart -->
 
-        <div class="container">
+        <div class="container4">
             <div class="row">
                 <div class="col-md-6">
                     <div id="barchart_values" style="width: 900px; height: 300px;"></div>
@@ -201,7 +181,7 @@
                                 2]);
 
                             var options = {
-                                title: "Type what you want",
+                                title: "Subscription Expense",
                                 width: 600,
                                 height: 400,
                                 bar: { groupWidth: "95%" },
@@ -220,7 +200,7 @@
         <br><br><br><br><br>
 
         <!--pie chart -->
-        <div class="container">
+        <div class="container3">
             <div class="row">
                 <div class="col-md-6">
                     <div id="piechart"></div>
@@ -244,7 +224,7 @@
 
                             // Optional; add a title and set the width and height of the chart
                             var options = {
-                                'title': 'Usege', 'width': 550, 'height': 400
+                                'title': 'Usage', 'width': 550, 'height': 400
                                 , 'backgroundColor': '#b0e0e6'
                             };
 

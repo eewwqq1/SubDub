@@ -6,9 +6,22 @@
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    align-content: center;
 }
+.container1 {
+    margin-top: 10%;
+    margin-left: 40%;
+}
+.container2 {
+    margin-left: 45%;
+}
+.container3 {
+    margin-left: 30%;
+}
+.container4 {
+    margin-left: 25%;
+}
+
 title-divider{
     margin-top: 1rem;
 margin-bottom: 1rem;
