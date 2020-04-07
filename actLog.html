@@ -79,26 +79,6 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-
-
-    <!-- Bootstrap, Jquley, HTML Style -->
-    <style>
-        .toggle.ios,
-        .toggle-on.ios,
-        .toggle-off.ios {
-            border-radius: 20px;
-        }
-
-        .toggle.ios .toggle-handle {
-            border-radius: 20px;
-        }
-
-        body {
-
-            background-color: #b0e0e6;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -195,7 +175,6 @@
                             legend: {
                                 position: "none"
                             },
-                            backgroundColor: '#b0e0e6',
                         };
                         var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
                         chart.draw(view, options);
@@ -238,7 +217,6 @@
                             'title': 'Usage',
                             'width': 550,
                             'height': 400,
-                            'backgroundColor': '#b0e0e6'
                         };
 
                         // Display the chart inside the <div> element with id="piechart"
