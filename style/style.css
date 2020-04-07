@@ -1,4 +1,4 @@
-.pageTitle{
+.pageTitle {
     text-align: center;
 }
 
@@ -8,20 +8,23 @@
     padding-left: 1.5%;
     align-content: center;
 }
+
 .container1 {
     margin-top: 10%;
     margin-left: 40%;
 }
+
 .container2 {
     margin-left: 45%;
 }
+
 .container3 {
     margin-left: 30%;
 }
 
-title-divider{
+title-divider {
     margin-top: 1rem;
-margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .marketing .col-lg-6 {
@@ -32,18 +35,19 @@ margin-bottom: 1rem;
     margin: 5rem 0;
 }
 
-.footer{
+.footer {
     bottom: 0;
 }
+
 .container-fluid {
     padding: 0px;
 }
 
-.footerText{
+.footerText {
     color: white;
-    padding:1%
-} 
+    padding: 1%
+}
 
-.bootButtons{
+.bootButtons {
     margin: 10px
 }

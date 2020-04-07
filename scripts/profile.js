@@ -1,12 +1,24 @@
-checkCred()
-loadInfo()
-function loadInfo(){
-    firebase.auth().onAuthStateChanged(function(user) {
+//=========================================================
+// Overview page logic: Load, edit and delete subscription
+//=========================================================
 
+//------------------------
+// Validate user's session
+//------------------------
+checkCred()
+
+//------------------------
+// Load user's information
+//------------------------
+loadInfo()
+
+function loadInfo() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        // Get user profile
         userID = firebase.auth().currentUser.uid;
         userProfile = db.collection("users").doc(userID);
         userProfile.get().then(
-            function(snap){
+            function (snap) {
                 document.getElementById("nameOfUser").value = snap.data().name;
                 document.getElementById("emailOfUser").value = snap.data().email;
                 // Date
@@ -16,111 +28,123 @@ function loadInfo(){
     });
 }
 
-function changePassword(){
+//----------------------------------------
+// Update user password, in Firebase Auth
+//----------------------------------------
+function changePassword() {
     let pw1 = document.getElementById("newPassword1").value;
     let pw2 = document.getElementById("newPassword2").value;
-    if (pw1.length < 6){
+    if (pw1.length < 6) {
         window.alert("Passwords must be longer than 6 characters")
-    }else if(pw1 != pw2){
+
+    } else if (pw1 != pw2) {
         window.alert("Passwords do not match")
-    }else{
 
-        firebase.auth().onAuthStateChanged(function(user) {
+    } else {
+        firebase.auth().onAuthStateChanged(function (user) {
 
-            user.updatePassword(pw1).then(function() {
+            user.updatePassword(pw1).then(function () {
                 showSuccessProfile("passwordMessage");
-            }).catch(function(error) {
+            }).catch(function (error) {
                 showErrorProfile("passwordMessage", error);
             });
-    
+
         })
     }
 }
 
-
-
-function changeInfo(){
+//-------------------------
+// Update user's info in DB
+//-------------------------
+function changeInfo() {
     let name = document.getElementById("nameOfUser").value;
-    let email= document.getElementById("emailOfUser").value;
+    let email = document.getElementById("emailOfUser").value;
 
-    if(email.length == 0 || !email.includes("@")){
+    // Error prevention
+    if (email.length == 0 || !email.includes("@")) {
         window.alert("Email format is invalid");
-    } else if(name.length ==0 ){
-        window.alert("Name cannot be empty");
-    }else{
-        firebase.auth().onAuthStateChanged(function(user) {
 
+    } else if (name.length == 0) {
+        window.alert("Name cannot be empty");
+
+    } else {
+        firebase.auth().onAuthStateChanged(function (user) {
+
+            // Get user doc
             userID = firebase.auth().currentUser.uid;
             userProfile = db.collection("users").doc(userID);
-            
-            
 
-            if (userProfile.name == name 
-                && userProfile.email == email){
-                    window.alert("No changes have been made")
-            }else if(userProfile.name == name 
-                && userProfile.email != email){
-                    return userProfile.update({
+            // Compare data
+            if (userProfile.name == name &&
+                userProfile.email == email) {
+                // No change (No over write)
+                window.alert("No changes have been made")
+
+            } else if (userProfile.name == name &&
+                userProfile.email != email) {
+                // Only name is changed
+                return userProfile.update({
                         name: name
                     })
-                    .then(function() {
+                    .then(function () {
                         showSuccessProfile("nameMessage");
                     })
-                    .catch(function(error) {
-                        // The document probably doesn't exist.
+                    .catch(function (error) {
                         showErrorProfile("nameMessage")
                     });
-            }else{
-                //update email in auth
-                user.updateEmail(email).then(function() {
+
+            } else {
+                // Update email in Firebase Auth
+                user.updateEmail(email).then(function () {
                     // Update successful.
                     showSuccessProfile("emailMessage");
-                    
-                }).catch(function(error) {
+
+                }).catch(function (error) {
                     // An error happened.
                     showErrorProfile("emailMessage", error)
                 });
 
-                //update info in db
+                // Update info in DB
                 return userProfile.update({
-                    name: name,
-                    email: email,
-                })
-                .then(function() {
-                    console.log(userProfile.data())
-                    showSuccessProfile("nameMessage");
-                })
-                .catch(function(error) {
-                    // The document probably doesn't exist.
-                    showErrorProfile("nameMessage")
-                });
+                        name: name,
+                        email: email,
+                    })
+                    .then(function () {
+                        showSuccessProfile("nameMessage");
+                    })
+                    .catch(function (error) {
+                        showErrorProfile("nameMessage")
+                    });
             }
-
-            
         })
     }
 }
 
-
-function showSuccessProfile(elemID){
+//---------------------
+// Show success message
+//---------------------
+function showSuccessProfile(elemID) {
 
     message = document.getElementById(elemID)
     message.className = "alert alert-success";
     message.style.display = "block"
-    if(elemID == "passwordMessage"){
+
+    if (elemID == "passwordMessage") {
         message.innerHTML = "<strong>Success!</strong> Password updated."
-    }else{
+    } else {
         message.innerHTML = "<strong>Success!</strong> Profile info updated."
     }
 }
 
-
-function showErrorProfile(elemID, error){
+//---------------------
+// Show error message
+//---------------------
+function showErrorProfile(elemID, error) {
 
     message = document.getElementById(elemID);
     message.className = "alert alert-warning";
     message.style.display = "block"
 
-    message.innerHTML = "<strong>Error!</strong> Error occurred. "  + error;
+    message.innerHTML = "<strong>Error!</strong> Error occurred. " + error;
 
 }

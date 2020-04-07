@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Sub'Dub</title>
 
-    <!-- Bootsrap 4 CDN-->
+    <!----------------------------------------------->
+    <!------------Bootsrap 4 CDN--------------------->
+    <!----------------------------------------------->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -24,24 +25,24 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style/style.css">
 
-    <!--  -->
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <!----------------------------------------------->
+    <!----Firebase App (the core Firebase SDK)------->
+    <!----------------------------------------------->
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-
-    <!--  -->
-    <!-- Firebase auth and Firestore-->
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 
-    <!--  -->
-    <!-- Custom Script -->
+    <!----------------------------------------------->
+    <!-----------------Custom Script----------------->
+    <!----------------------------------------------->
     <script src="scripts/firebase.js"></script>
     <script src="scripts/profile.js"></script>
 
 </head>
 
 <body>
+    <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">Sub Dub</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -69,6 +70,7 @@
 
         <hr class="title-divider">
 
+        <!-- Information Form -->
         <form class="pageForm">
 
             <div class="row">
@@ -116,12 +118,14 @@
 
                     <!-- Cancle button -->
                     <div class='col-sm-4'>
-                        <button class="btn btn-warning" onclick="loadInfo()" type=button value="reset"
-                            id="resetAddSub" style="margin:10px">Reset</button>
+                        <button class="btn btn-warning" onclick="loadInfo()" type=button value="reset" id="resetAddSub"
+                            style="margin:10px">Reset</button>
                     </div>
                 </div>
             </div>
         </form>
+
+        <!-- Password Form -->
         <form class="pageForm">
             <br>
             <div class="row">
@@ -139,7 +143,7 @@
 
                     <div class="form-group ">
                         <label for="formGroupExampleInput">New Password:</label>
-                        <input type="password" class="form-control" id="newPassword1" placeholder="Enter New Password" >
+                        <input type="password" class="form-control" id="newPassword1" placeholder="Enter New Password">
                     </div>
                     <div class="form-group ">
                         <label for="formGroupExampleInput">Confirm New Password:</label>
@@ -159,13 +163,16 @@
 
                     <!-- Cancle button -->
                     <div class='col-sm-4'>
-                        <button class="btn btn-warning" type="reset" value="reset" id="resetAddSub" style="margin:10px">Reset 
+                        <button class="btn btn-warning" type="reset" value="reset" id="resetAddSub"
+                            style="margin:10px">Reset
                             Fields</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
+
+    <!-- Footer -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark footer">
         <p class="navbar-brand">Contact us</a>
             <div class="container-fluid p-3 p-md-5">

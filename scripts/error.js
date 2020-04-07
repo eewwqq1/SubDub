@@ -1,6 +1,12 @@
+//==============================
+//  Visual logic for error page
+//==============================
+
 const title = document.querySelector('.error_title')
 
-//////// Light //////////
+///---------------------
+// Show Light
+//---------------------
 document.onmousemove = function (e) {
     let x = e.pageX - window.innerWidth / 2;
     let y = e.pageY - window.innerHeight / 2;
@@ -9,7 +15,9 @@ document.onmousemove = function (e) {
     title.style.setProperty('--y', y + 'px')
 }
 
-////////////// Shadow ///////////////////
+//---------------------
+// Show Shadow
+//---------------------
 title.onmousemove = function (e) {
     let x = e.pageX - window.innerWidth / 2;
     let y = e.pageY - window.innerHeight / 2;
@@ -24,11 +32,14 @@ title.onmousemove = function (e) {
     title.style.setProperty('--y-shadow', -y_shadow + 'px')
 }
 
-function backHome(){
-    firebase.auth().onAuthStateChanged(function(user) {
+//--------------------------------------------------------
+// Send user back to pages, depend on if logged in or not
+//--------------------------------------------------------
+function backHome() {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             window.location = "index.html"
-    
+
         } else {
             window.location = "main.html"
         }

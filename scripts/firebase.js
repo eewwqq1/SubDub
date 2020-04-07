@@ -1,87 +1,98 @@
- //
-// API for firebase
-//
+//====================
+// API for Firebase
+//====================
 
-// Your web app's Firebase configuration
+//------------------------
+// Firebase configuration
+//------------------------
 var firebaseConfig = {
-apiKey: "AIzaSyAL3H4clvbViJ4vFVymG1cYo51vAKor_zQ",
-authDomain: "sub-dub.firebaseapp.com",
-databaseURL: "https://sub-dub.firebaseio.com",
-projectId: "sub-dub",
-storageBucket: "sub-dub.appspot.com",
-messagingSenderId: "553039405587",
-appId: "1:553039405587:web:ce9ad9ef6e13fe2b0fd5e6"
+    apiKey: "AIzaSyAL3H4clvbViJ4vFVymG1cYo51vAKor_zQ",
+    authDomain: "sub-dub.firebaseapp.com",
+    databaseURL: "https://sub-dub.firebaseio.com",
+    projectId: "sub-dub",
+    storageBucket: "sub-dub.appspot.com",
+    messagingSenderId: "553039405587",
+    appId: "1:553039405587:web:ce9ad9ef6e13fe2b0fd5e6"
 };
 
+//--------------------
 // Initialize Firebase
+//--------------------
 firebase.initializeApp(firebaseConfig);
 db = firebase.firestore();
 
-function register(){
+//------------------------
+// Register user's account
+//------------------------
+function register() {
     let pw = document.getElementById("pwInput").value;
     let pwCon = document.getElementById("pwInputCon").value;
     let name = document.getElementById("nameInput").value;
     let email = document.getElementById("emailInput").value;
-    
-    if(pw != pwCon){
+
+    if (pw != pwCon) {
         window.alert("Passwords do not match");
         return;
 
-    }else{
-        firebase.auth().createUserWithEmailAndPassword(email, pw).catch(function(error) {
+    } else {
+        firebase.auth().createUserWithEmailAndPassword(email, pw).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             window.alert(errorMessage);
             return false;
-        }).then(function(){
+        }).then(function () {
             let user = firebase.auth().currentUser;
             let event = new Date();
-            db.collection("users" ).doc(user.uid).set({
+            db.collection("users").doc(user.uid).set({
                 name: name,
-                email: email,            
+                email: email,
                 // dateOfCreation : event.toString()
-            }).then(function(){
-                window.location = "index.html";     
+            }).then(function () {
+                window.location = "index.html";
             })
-            
         });
     }
 }
 
-
-function login(){
+//--------------------
+// Login and redirect
+//--------------------
+function login() {
     let email = document.getElementById("emailInput").value;
     let password = document.getElementById("passwordInput").value;
 
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         window.alert(errorMessage);
-    }).then(function(){
+    }).then(function () {
         window.location = "index.html";
     });
 }
 
-
-function logout(){
-    firebase.auth().signOut().then(function() {
+//--------------------
+// Sign Out
+//--------------------
+function logout() {
+    firebase.auth().signOut().then(function () {
         // Sign-out successful.
         window.location = "main.html";
-    }).catch(function(error) {
+    }).catch(function (error) {
         // An error happened.
-    }).then(function(){
+    }).then(function () {
         checkCred("");
     });
 }
 
-
-function checkCred(){
-    firebase.auth().onAuthStateChanged(function(user) {
+//--------------------
+// Validate user's session
+//--------------------
+function checkCred() {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (!user) {
             window.location = "main.html";
         }
     });
 }
-

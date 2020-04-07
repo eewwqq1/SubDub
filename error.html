@@ -2,43 +2,45 @@
 <html lang="en">
 
 <head>
-  <!--  -->
-  <!-- Bootsrap 4 CDN-->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!--  -->
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <!----------------------------------------------->
+    <!------------Bootsrap 4 CDN--------------------->
+    <!----------------------------------------------->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!--  -->
-  <!-- Firebase auth and Firestore-->
-  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <!----------------------------------------------->
+    <!----Firebase App (the core Firebase SDK)------->
+    <!----------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 
-  <!--  -->
-  <!-- Custom styles-->
-  <link rel="stylesheet" type="text/css" href="style/error.css">
+    <!-- Custom styles-->
+    <link rel="stylesheet" type="text/css" href="style/error.css">
 
-  <!--  -->
-  <!-- Custom Script -->
-  <script src="scripts/firebase.js"></script>
+    <!----------------------------------------------->
+    <!-----------------Custom Script----------------->
+    <!----------------------------------------------->
+    <script src="scripts/firebase.js"></script>
+
 
 </head>
 
 <body>
-  <section class="error_section">
-    <p class="error_section_subtitle">Opps Page is not available !</p>
-    <h1 class="error_title">
-      <p>404</p>
-      404
-    </h1>
-    <button onclick="backHome()" class="btn">Back to home</a>
-  </section>
-</body>
+    <!-- Visual script -->
+    <script src="scripts/error.js"></script>
 
-<script src="scripts/error.js"></script>
+    <section class="error_section">
+        <p class="error_section_subtitle">Opps Page is not available !</p>
+        <h1 class="error_title">
+            <p>404</p>
+            404
+        </h1>
+        <button onclick="backHome()" class="btn">Back to home</a>
+    </section>
+</body>
 
 </html>
