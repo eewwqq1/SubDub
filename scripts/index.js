@@ -28,7 +28,19 @@ function readSubscriptions(){
         userSub.get().then(
             function(snap){
                 if(snap.size<=0){
-                    console.log("empty")
+                    let deck = document.getElementById("overviewCards");
+                    let emptyMsg = document.createElement("p");
+                    emptyMsg.innerHTML = "No subscription to show!"
+                    emptyMsg.style.textAlign = "center";
+                    emptyMsg.style.padding = "1rem";
+                    emptyMsg.style.fontSize = "1.5rem";
+
+                    let emptyImg =  document.createElement("img");
+                    emptyImg.src = "image/emptyImg.png";
+                    emptyImg.style.width = "100%";
+                    emptyImg.style.height = "auto";
+                    deck.appendChild(emptyMsg);
+                    deck.appendChild(emptyImg);
                 }
                 snap.forEach(function(doc){
                     let deck = document.getElementById("overviewCards");
@@ -37,20 +49,20 @@ function readSubscriptions(){
                     let textnodeName = document.createTextNode(doc.data().name);
                     nameNode.appendChild(textnodeName); 
   
-                    let priceNode = document.createElement("LI");                           // Create a <li> node
+                    let priceNode = document.createElement("LI");                                  // Create a <li> node
                     let textnodePrice = document.createTextNode("$" + doc.data().price);           // Create a text node
                     priceNode.appendChild(textnodePrice);  
 
-                    let typeNode = document.createElement("LI");                           // Create a <li> node
-                    let textnodeType = document.createTextNode(doc.data().type);           // Create a text node
+                    let typeNode = document.createElement("LI");                      
+                    let textnodeType = document.createTextNode(doc.data().type);      
                     typeNode.appendChild(textnodeType); 
 
-                    let dateNode = document.createElement("LI");                           // Create a <li> node
-                    let textnodeDue = document.createTextNode(doc.data().dueDate);           // Create a text node
-                    dateNode.appendChild(textnodeDue);                                  // Append the text to <li>
+                    let dateNode = document.createElement("LI");                      
+                    let textnodeDue = document.createTextNode(doc.data().dueDate);    
+                    dateNode.appendChild(textnodeDue);                                
                     
-                    let freqNode = document.createElement("LI");                           // Create a <li> node
-                    let textnodeFreq = document.createTextNode(doc.data().frequency);           // Create a text node
+                    let freqNode = document.createElement("LI");                      
+                    let textnodeFreq = document.createTextNode(doc.data().frequency); 
                     freqNode.appendChild(textnodeFreq); 
 
                     let cardList = document.createElement("UL");
@@ -65,12 +77,37 @@ function readSubscriptions(){
                     cardText.appendChild(cardList);
 
 
+                    let deleteMsg = document.createElement("P")
+                    deleteMsg.className = "deleteMessage alert-danger";
+                    deleteMsg.style.display = "none";
+                    deleteMsg.style.margin = "5px";
+                    deleteMsg.innerHTML = "Confirm delete? <br><br>"
+                    
+                    let delButt = document.createElement("Button");
+                    delButt.innerHTML = "Confirm Delete";
+                    delButt.className = "btn btn-danger";
+                    delButt.style.margin = "5px";
+                    delButt.onclick = function(){
+                        deleteSub(doc.id);
+                    };
+
+                    let cancelButt = document.createElement("Button");
+                    cancelButt.innerHTML = "Dismiss";
+                    cancelButt.className = "btn btn-secondary";
+                    cancelButt.style.margin = "5px";
+                    cancelButt.onclick = function(){
+                        deleteMsg.style.display = "none";
+                    }
+                   
+                    deleteMsg.appendChild(delButt);
+                    deleteMsg.appendChild(cancelButt);
+
                     //buttons
                     let viewButton = document.createElement("BUTTON");
                     viewButton.className = "btn btn-sm btn-outline-secondary";
                     viewButton.innerHTML = "Delete";
                     viewButton.onclick = function(){
-                        deleteSub(doc.id);
+                        deleteMsg.style.display = "block";
                     };
                     
                     let editButton = document.createElement("BUTTON");
@@ -99,6 +136,7 @@ function readSubscriptions(){
                     //main card
                     let cardBody = document.createElement("div");
                     cardBody.className = "card-body";
+                    cardBody.appendChild(deleteMsg);
                     cardBody.appendChild(cardText);
                     cardBody.appendChild(buttonBlock);
 

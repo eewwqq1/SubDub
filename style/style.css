@@ -44,12 +44,6 @@ margin-bottom: 1rem;
     padding:1%
 } 
 
-.toggle.ios,
-    .toggle-on.ios,
-    .toggle-off.ios {
-      border-radius: 20px;
-    }
-
-    .toggle.ios .toggle-handle {
-      border-radius: 20px;
-    }
+.bootButtons{
+    margin: 10px
+}
