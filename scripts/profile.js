@@ -51,50 +51,52 @@ function changeInfo(){
         firebase.auth().onAuthStateChanged(function(user) {
 
             userID = firebase.auth().currentUser.uid;
-            userProfile = db.collection("users").doc(userID)
-                .get().then(function(){
+            userProfile = db.collection("users").doc(userID);
+            
+            
 
-                    if (userProfile.name == name 
-                        && userProfile.email == email){
-                            window.alert("No changes have been made")
-                    }else if(userProfile.name == name 
-                        && userProfile.email != email){
-                            return userProfile.update({
-                                name: name
-                            })
-                            .then(function() {
-                                showSuccessProfile("nameMessage");
-                            })
-                            .catch(function(error) {
-                                // The document probably doesn't exist.
-                                showErrorProfile("nameMessage")
-                            });
-                    }else{
-                        //update email in auth
-                        user.updateEmail(email).then(function() {
-                            // Update successful.
-                            showSuccessProfile("emailMessage");
-                            
-                        }).catch(function(error) {
-                            // An error happened.
-                            showErrorProfile("emailMessage", error)
-                        });
+            if (userProfile.name == name 
+                && userProfile.email == email){
+                    window.alert("No changes have been made")
+            }else if(userProfile.name == name 
+                && userProfile.email != email){
+                    return userProfile.update({
+                        name: name
+                    })
+                    .then(function() {
+                        showSuccessProfile("nameMessage");
+                    })
+                    .catch(function(error) {
+                        // The document probably doesn't exist.
+                        showErrorProfile("nameMessage")
+                    });
+            }else{
+                //update email in auth
+                user.updateEmail(email).then(function() {
+                    // Update successful.
+                    showSuccessProfile("emailMessage");
+                    
+                }).catch(function(error) {
+                    // An error happened.
+                    showErrorProfile("emailMessage", error)
+                });
 
-                        //update info in db
-                        return userProfile.update({
-                            name: name,
-                            email: email,
-                        })
-                        .then(function() {
-                            showSuccessProfile("nameMessage");
-                        })
-                        .catch(function(error) {
-                            // The document probably doesn't exist.
-                            showErrorProfile("nameMessage")
-                        });
-                    }
+                //update info in db
+                return userProfile.update({
+                    name: name,
+                    email: email,
+                })
+                .then(function() {
+                    console.log(userProfile.data())
+                    showSuccessProfile("nameMessage");
+                })
+                .catch(function(error) {
+                    // The document probably doesn't exist.
+                    showErrorProfile("nameMessage")
+                });
+            }
 
-            });
+            
         })
     }
 }
