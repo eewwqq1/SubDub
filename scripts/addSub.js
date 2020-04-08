@@ -7,9 +7,11 @@
 //-------------------------
 checkCred()
 
-//------------------------
-// Get value, write to DB
-//------------------------
+//----------------------------------------------------
+// Get value, write to DB (invoked by Add Sub button)
+// Input param: None
+// Return value: None
+//----------------------------------------------------
 function writeSub() {
     let subName = document.getElementById("nameOfSub").value;
     let subAmount = document.getElementById("priceOfSub").value;
@@ -44,9 +46,12 @@ function writeSub() {
     }
 }
 
-//---------------------
-// Show success message
-//---------------------
+
+//-----------------------------------------------
+// Show success message (Invoked by DB response)
+// Input param: None
+// Return value: None
+//-----------------------------------------------
 function showSuccess() {
     message = document.getElementById("message")
     message.className = "alert alert-success";
@@ -54,9 +59,12 @@ function showSuccess() {
     message.innerHTML = "<strong>Success!</strong> Subscription added."
 }
 
-//---------------------
-// Show error message
-//---------------------
+
+//--------------------------------------------
+// Show error message (Invoked by DB response)
+// Input param: None
+// Return value: None
+//--------------------------------------------
 function showError() {
     message = document.getElementById("message")
     message.className = "alert alert-warning";

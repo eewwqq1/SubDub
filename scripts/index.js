@@ -6,12 +6,13 @@
 // Validate user's session
 //-------------------------
 checkCred()
-
-//-------------------------
-// Load user's information
-//-------------------------
 init()
 
+//-------------------------------------------------
+// Load user's information (Invoke on load screen)
+// Input param: None
+// Return value: None
+//-------------------------------------------------
 function init() {
     firebase.auth().onAuthStateChanged(function (user) {
         userID = firebase.auth().currentUser.uid;
@@ -25,9 +26,11 @@ function init() {
     });
 }
 
-//--------------------------------------
-// Load all user's subscription as card
-//--------------------------------------
+//-------------------------------------------------------------------------
+// Load all user's subscription as card dynamically (Invoke on load screen)
+// Input param: None
+// Return value: None
+//-------------------------------------------------------------------------
 function readSubscriptions() {
     firebase.auth().onAuthStateChanged(function (user) {
 
@@ -58,7 +61,7 @@ function readSubscriptions() {
                     deck.appendChild(emptyMsg);
                     deck.appendChild(emptyImg);
                 } else {
-                    // Iterate through sub 
+                    // Iterate through sub and create cards dynamically
                     snap.forEach(function (doc) {
                         let deck = document.getElementById("overviewCards");
 
@@ -176,9 +179,17 @@ function readSubscriptions() {
     });
 }
 
-//---------------------------
-// Show modal for edit board
-//---------------------------
+
+//------------------------------------------------------------
+// Show modal for edit board (Invoke by pressing Edit button)
+// Input param: id = Subscription ID's unique DB id
+// Input param: name = Subscription name
+// Input param: price = Subscription price
+// Input param: type = Subscription type
+// Input param: dueDate = Subscription due date
+// Input param: frequency = Subscription frequency
+// Return value: None
+//------------------------------------------------------------
 function editSub(id, name, price, type, dueDate, frequency) {
     document.getElementById("nameOfSub").value = name;
     document.getElementById("priceOfSub").value = price;
@@ -188,9 +199,12 @@ function editSub(id, name, price, type, dueDate, frequency) {
     document.getElementById("updateBtn").setAttribute("data-id", id);
 }
 
-//------------------------------------
-// Delete user's subscription form DB
-//------------------------------------
+
+//---------------------------------------------------------------
+// Delete user's subscription form DB (Invoked by delete button)
+// Input param: subId = Subscription ID
+// Return value: None
+//---------------------------------------------------------------
 function deleteSub(subId) {
     firebase.auth().onAuthStateChanged(function (user) {
         userID = firebase.auth().currentUser.uid;
@@ -206,9 +220,12 @@ function deleteSub(subId) {
     });
 }
 
-//----------------------
+
+//--------------------------------------
 // Update Sub info in DB
-//----------------------
+// Input param: subId = Subscription ID
+// Return value: None
+//--------------------------------------
 function updateSub() {
     let subId = document.getElementById("updateBtn").getAttribute("data-id");
     let subName = document.getElementById("nameOfSub").value;
@@ -247,9 +264,12 @@ function updateSub() {
     })
 }
 
-//---------------------------------
-// Show success message for action
-//---------------------------------
+
+//-----------------------------------------------------------
+// Show success message for action (Invoked by DB response)
+// Input param: elemId = element ID
+// Return value: None
+//-----------------------------------------------------------
 function showSuccess(elemId) {
     message = document.getElementById(elemId)
     message.className = "alert alert-success";
@@ -261,9 +281,12 @@ function showSuccess(elemId) {
     }
 }
 
-//-------------------------------
-// Show error message from action
-//-------------------------------
+
+//--------------------------------------------------------
+// Show error message from action (Invoked by DB response)
+// Input param: elemId = element ID
+// Return value: None
+//--------------------------------------------------------
 function showError(elemId) {
     message = document.getElementById(elemId)
     message.className = "alert alert-warning";

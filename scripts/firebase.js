@@ -22,7 +22,9 @@ firebase.initializeApp(firebaseConfig);
 db = firebase.firestore();
 
 //------------------------
-// Register user's account
+// Register user's account (Invoked by register button)
+// Input param: None
+// Return value: None
 //------------------------
 function register() {
     let pw = document.getElementById("pwInput").value;
@@ -56,7 +58,9 @@ function register() {
 }
 
 //--------------------
-// Login and redirect
+// Login and redirect (Invoked by login button)
+// Input param: None
+// Return value: None
 //--------------------
 function login() {
     let email = document.getElementById("emailInput").value;
@@ -72,9 +76,11 @@ function login() {
     });
 }
 
-//--------------------
-// Sign Out
-//--------------------
+//------------------------------------------
+// Sign Out (Invoked by log out button)
+// Input param: None
+// Return value: None
+//------------------------------------------
 function logout() {
     firebase.auth().signOut().then(function () {
         // Sign-out successful.
@@ -87,7 +93,9 @@ function logout() {
 }
 
 //--------------------
-// Validate user's session
+// Validate user's session 
+// Input param: None
+// Return value: None
 //--------------------
 function checkCred() {
     firebase.auth().onAuthStateChanged(function (user) {

@@ -12,6 +12,11 @@ checkCred()
 //------------------------
 loadInfo()
 
+//-------------------------------------------------------------
+// Load user's information into fields (Invoke on load screen)
+// Input param: None
+// Return value: None
+//-------------------------------------------------------------
 function loadInfo() {
     firebase.auth().onAuthStateChanged(function (user) {
         // Get user profile
@@ -28,9 +33,11 @@ function loadInfo() {
     });
 }
 
-//----------------------------------------
-// Update user password, in Firebase Auth
-//----------------------------------------
+//---------------------------------------------------------------------
+// Update user password, in Firebase Auth (Invoked by Update password)
+// Input param: None
+// Return value: None
+//---------------------------------------------------------------------
 function changePassword() {
     let pw1 = document.getElementById("newPassword1").value;
     let pw2 = document.getElementById("newPassword2").value;
@@ -53,9 +60,11 @@ function changePassword() {
     }
 }
 
-//-------------------------
-// Update user's info in DB
-//-------------------------
+//-----------------------------------------------------
+// Update user's info in DB (invoked by Update Button)
+// Input param: None
+// Return value: None
+//-----------------------------------------------------
 function changeInfo() {
     let name = document.getElementById("nameOfUser").value;
     let email = document.getElementById("emailOfUser").value;
@@ -121,7 +130,9 @@ function changeInfo() {
 }
 
 //---------------------
-// Show success message
+// Show success message (Invoked by DB response)
+// Input param: elemId = element ID
+// Return value: None
 //---------------------
 function showSuccessProfile(elemID) {
 
@@ -137,7 +148,9 @@ function showSuccessProfile(elemID) {
 }
 
 //---------------------
-// Show error message
+// Show error message (Invoked by DB response)
+// Input param: elemId = element ID
+// Return value: None
 //---------------------
 function showErrorProfile(elemID, error) {
 

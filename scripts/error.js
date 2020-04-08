@@ -4,9 +4,9 @@
 
 const title = document.querySelector('.error_title')
 
-///---------------------
-// Show Light
-//---------------------
+///-------------------------------
+// Show Light (Anonymous function)
+//--------------------------------
 document.onmousemove = function (e) {
     let x = e.pageX - window.innerWidth / 2;
     let y = e.pageY - window.innerHeight / 2;
@@ -15,9 +15,9 @@ document.onmousemove = function (e) {
     title.style.setProperty('--y', y + 'px')
 }
 
-//---------------------
-// Show Shadow
-//---------------------
+//--------------------------------
+// Show Shadow (Anonymous function)
+//--------------------------------
 title.onmousemove = function (e) {
     let x = e.pageX - window.innerWidth / 2;
     let y = e.pageY - window.innerHeight / 2;
@@ -32,9 +32,11 @@ title.onmousemove = function (e) {
     title.style.setProperty('--y-shadow', -y_shadow + 'px')
 }
 
-//--------------------------------------------------------
-// Send user back to pages, depend on if logged in or not
-//--------------------------------------------------------
+//--------------------------------------------------------------------------------------
+// Send user back to pages, depend on if logged in or not (invoked by Back Home button)
+// Input param: None
+// Return value: None
+//--------------------------------------------------------------------------------------
 function backHome() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
