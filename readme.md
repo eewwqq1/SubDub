@@ -44,14 +44,17 @@ Content of the project folder:
 └── README.md
 
 Script files: 
-├── addSub.js                   # Write to DB
-├── error.js                    # Error page (Visual logic)
-├── firebase.js                 # Handle firebase initialization
-├── index.js                    # Load, edit, delete subscriptions in DB
-├── profile.js                  # Update user's profile info
-
-Styling files: 
-├── error.css                   # Error page style
-├── login.css                   # Login page style
-├── style.css                   # General style rules
+├── scripts                  	 # Folder for scripts
+    /addSub.js                   # Write to DB
+    /error.js                    # Error page (Visual logic)
+    /firebase.js                 # Handle firebase initialization
+    /index.js                    # Load, edit, delete subscriptions in DB
+    /profile.js                  # Update user's profile info
+    
+├── styles                  	 # Folder for styling files
+    /error.css                   # Error page style
+    /login.css                   # Login page style
+    /style.css                   # General style rules
+    
+├── image                  	 # Folder for images
 ```
